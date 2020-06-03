@@ -72,3 +72,6 @@ nb-configuration.xml
 *.ipr
 *.iws
 
+# Local maven repo #
+####################
+repo/

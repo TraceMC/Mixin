@@ -17,12 +17,13 @@ apply plugin: 'maven'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'com.github.johnrengelman.shadow'
+apply plugin: 'maven-publish' // INstall to maven local thx
 
 // Default tasks
 defaultTasks 'licenseFormat', 'check', 'build'
 
 // Basic project information
-group = 'org.spongepowered'
+group = 'com.github.trace'
 archivesBaseName = 'mixin'
 version = buildVersion + (buildType == 'RELEASE' ? '' : "-$buildType")
 
@@ -62,6 +63,7 @@ repositories {
         name = 'forge'
         url = 'https://files.minecraftforge.net/maven'
     }
+    mavenLocal() // Pls let me install to maven local thanks lol
 }
 
 configurations {
@@ -415,7 +417,14 @@ uploadArchives {
                 }
             }
         }
-            
+
+        mavenDeployer {
+            name = "local"
+            configuration = configurations.deployerJars
+            pom mavenPom
+            repository(url: "file://${project.rootDir}/repo") {}
+        }
+
         // Push everything to sponge repo
         if (project.hasProperty("spongeRepo")) {
             mavenDeployer {

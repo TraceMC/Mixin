@@ -42,6 +42,7 @@ import com.google.common.collect.ImmutableSet;
 public class ObfuscationServiceFG3 implements IObfuscationService {
     
     public static final String SEARGE                 = "searge";
+    public static final String NOTCH                  = "notch";
 
     public static final String REOBF_TSRG_FILE        = "reobfTsrgFile";
     public static final String REOBF_EXTRA_TSRG_FILES = "reobfTsrgFiles";
@@ -69,6 +70,15 @@ public class ObfuscationServiceFG3 implements IObfuscationService {
                   ObfuscationServiceFG3.OUT_TSRG_SRG_FILE,
                   ObfuscationEnvironmentFG3.class
               )
+            );
+            list.add(
+                    new ObfuscationTypeDescriptor(
+                            ObfuscationServiceFG3.NOTCH,
+                            ObfuscationServiceFG3.REOBF_TSRG_FILE,
+                            ObfuscationServiceFG3.REOBF_EXTRA_TSRG_FILES,
+                            ObfuscationServiceFG3.OUT_TSRG_SRG_FILE,
+                            ObfuscationEnvironmentFG3.class
+                    )
             );
         }
         return list.build();
