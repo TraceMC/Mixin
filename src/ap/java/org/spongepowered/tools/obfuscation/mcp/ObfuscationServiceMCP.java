@@ -76,16 +76,17 @@ public class ObfuscationServiceMCP implements IObfuscationService {
                     ObfuscationEnvironmentMCP.class
                 )
             );
+
+            list.add(
+                    new ObfuscationTypeDescriptor(
+                            ObfuscationServiceMCP.NOTCH,
+                            ObfuscationServiceMCP.REOBF_NOTCH_FILE,
+                            ObfuscationServiceMCP.REOBF_EXTRA_NOTCH_FILES,
+                            ObfuscationServiceMCP.OUT_NOTCH_SRG_FILE,
+                            ObfuscationEnvironmentMCP.class
+                    )
+            );
         }
-        list.add(
-              new ObfuscationTypeDescriptor(
-                  ObfuscationServiceMCP.NOTCH,
-                  ObfuscationServiceMCP.REOBF_NOTCH_FILE,
-                  ObfuscationServiceMCP.REOBF_EXTRA_NOTCH_FILES,
-                  ObfuscationServiceMCP.OUT_NOTCH_SRG_FILE,
-                  ObfuscationEnvironmentMCP.class
-              )
-        );
         return list.build();
     }
     

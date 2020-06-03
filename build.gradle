@@ -22,6 +22,8 @@ apply plugin: 'maven-publish' // INstall to maven local thx
 // Default tasks
 defaultTasks 'licenseFormat', 'check', 'build'
 
+buildType = 'RELEASE'
+
 // Basic project information
 group = 'com.github.trace'
 archivesBaseName = 'mixin'
